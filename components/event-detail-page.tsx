@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, useScroll, useTransform } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Calendar, Clock, ImageIcon, MapPin, Play, Quote, Ticket, Users } from "lucide-react"
 import { LotusIcon, RangoliFull } from "@/components/indian-patterns"
@@ -232,10 +233,13 @@ export function EventDetailPage({ event }: { event: SignatureEvent }) {
                         </div>
                       </>
                     ) : (
-                      <img
+                      <Image
                         src={item.src}
                         alt={item.alt}
+                        fill
+                        sizes={index === 0 ? "(min-width: 1024px) 38vw, (min-width: 640px) 85vw, 100vw" : "(min-width: 1024px) 18vw, (min-width: 640px) 42vw, 100vw"}
                         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        quality={82}
                         loading={index === 0 ? "eager" : "lazy"}
                       />
                     )}

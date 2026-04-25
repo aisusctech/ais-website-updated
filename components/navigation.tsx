@@ -18,11 +18,28 @@ export function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    let frameId: number | null = null
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      if (frameId !== null) {
+        return
+      }
+
+      frameId = window.requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50)
+        frameId = null
+      })
     }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
+    return () => {
+      if (frameId !== null) {
+        window.cancelAnimationFrame(frameId)
+      }
+      window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   return (
