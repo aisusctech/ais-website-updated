@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import Link from "next/link"
-import { ArrowLeft, Calendar, CheckCircle2, Clock, MapPin, Quote, Sparkles, Ticket, Users } from "lucide-react"
+import { ArrowLeft, Calendar, Clock, ImageIcon, MapPin, Play, Quote, Ticket, Users } from "lucide-react"
 import { LotusIcon, RangoliFull } from "@/components/indian-patterns"
 import type { SignatureEvent } from "@/lib/signature-events"
 
@@ -196,21 +196,63 @@ export function EventDetailPage({ event }: { event: SignatureEvent }) {
         >
           <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-card/40 p-8">
             <div className="mb-5 flex items-center gap-3">
-              <Sparkles size={20} className="text-primary" />
-              <h2 className="text-2xl font-semibold text-foreground">What To Expect</h2>
+              <ImageIcon size={20} className="text-primary" />
+              <h2 className="text-2xl font-semibold text-foreground">Moments Gallery</h2>
             </div>
-            <div className="grid gap-3">
-              {event.highlights.map((highlight) => (
-                <motion.div
-                  key={highlight}
-                  className="flex items-center gap-3 rounded-xl border border-border/70 bg-secondary/25 p-4"
-                  whileHover={{ x: 6 }}
-                >
-                  <CheckCircle2 size={19} className="text-primary" />
-                  <span className="text-sm text-muted-foreground">{highlight}</span>
-                </motion.div>
-              ))}
-            </div>
+
+            {event.gallery.length > 0 ? (
+              <div className="grid gap-4 sm:grid-cols-2">
+                {event.gallery.map((item, index) => (
+                  <motion.figure
+                    key={item.src}
+                    className={`group relative min-h-44 overflow-hidden rounded-xl border border-border/70 bg-secondary/25 ${
+                      index === 0 ? "sm:col-span-2 min-h-64" : ""
+                    }`}
+                    initial={{ opacity: 0, y: 18, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ delay: index * 0.05 }}
+                    whileHover={{ y: -4 }}
+                  >
+                    {item.type === "video" ? (
+                      <>
+                        <video
+                          src={item.src}
+                          poster={item.poster}
+                          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          muted
+                          loop
+                          playsInline
+                          controls
+                          preload="metadata"
+                          aria-label={item.alt}
+                        />
+                        <div className="pointer-events-none absolute left-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-background/70 text-primary backdrop-blur-sm">
+                          <Play size={18} />
+                        </div>
+                      </>
+                    ) : (
+                      <img
+                        src={item.src}
+                        alt={item.alt}
+                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading={index === 0 ? "eager" : "lazy"}
+                      />
+                    )}
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/90 via-background/10 to-transparent opacity-85" />
+                    <figcaption className="pointer-events-none absolute bottom-0 left-0 right-0 p-4 text-sm leading-6 text-foreground">
+                      {item.caption}
+                    </figcaption>
+                  </motion.figure>
+                ))}
+              </div>
+            ) : (
+              <div className="rounded-xl border border-dashed border-primary/25 bg-primary/5 p-5">
+                <p className="text-sm leading-6 text-muted-foreground">
+                  Add photos or videos for {event.title} in <span className="text-primary">public/events/{event.slug}/</span>, then register them in the event gallery.
+                </p>
+              </div>
+            )}
           </motion.div>
 
           <motion.div variants={fadeUp} className="rounded-2xl border border-border bg-card/40 p-8">
@@ -241,51 +283,6 @@ export function EventDetailPage({ event }: { event: SignatureEvent }) {
             </div>
           </motion.div>
         </motion.section>
-
-        {event.gallery.length > 0 && (
-          <section className="mt-10">
-            <motion.div
-              className="mb-8 text-center"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="mb-3 flex items-center justify-center gap-3">
-                <LotusIcon size={22} opacity={0.65} />
-                <span className="text-sm uppercase tracking-widest text-primary">Moments Gallery</span>
-                <LotusIcon size={22} opacity={0.65} />
-              </div>
-              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">{event.title} Highlights</h2>
-            </motion.div>
-
-            <div className="grid gap-5 md:grid-cols-4">
-              {event.gallery.map((image, index) => (
-                <motion.figure
-                  key={image.src}
-                  className={`group relative min-h-64 overflow-hidden rounded-2xl border border-border bg-card/40 ${
-                    index === 0 ? "md:col-span-2 md:row-span-2 md:min-h-[34rem]" : ""
-                  }`}
-                  initial={{ opacity: 0, y: 28, scale: 0.98 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true, amount: 0.25 }}
-                  transition={{ delay: index * 0.06, duration: 0.45 }}
-                  whileHover={{ y: -6 }}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/88 via-background/10 to-transparent opacity-80" />
-                  <figcaption className="absolute bottom-0 left-0 right-0 p-5 text-sm leading-6 text-foreground">
-                    {image.caption}
-                  </figcaption>
-                </motion.figure>
-              ))}
-            </div>
-          </section>
-        )}
 
         <section className="mt-10">
           <motion.div

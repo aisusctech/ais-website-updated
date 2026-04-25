@@ -18,9 +18,11 @@ export type SignatureEvent = {
   imageCaption: string
   imagePosition: string
   gallery: {
+    type: "image" | "video"
     src: string
     alt: string
     caption: string
+    poster?: string
   }[]
   startDate: string
   endDate: string
@@ -57,7 +59,38 @@ export const signatureEvents: SignatureEvent[] = [
     imageAlt: "AIS USC Diwali stage celebration with students raising their hands during a performance finale",
     imageCaption: "AIS USC students celebrate Diwali with performances, music, and community.",
     imagePosition: "center 42%",
-    gallery: [],
+    gallery: [
+      {
+        type: "image",
+        src: "/events/diwali/2299d050-b274-43c5-bb21-860e0a2e1ad8.jpg",
+        alt: "AIS USC Diwali celebration with students gathered under string lights at night",
+        caption: "Students coming together for AIS USC's Diwali celebration.",
+      },
+      {
+        type: "image",
+        src: "/events/diwali/IMG_4158.JPG",
+        alt: "AIS USC Diwali students celebrating together",
+        caption: "A night of music, community, and festive energy.",
+      },
+      {
+        type: "image",
+        src: "/events/diwali/IMG_4161.JPG",
+        alt: "AIS USC Diwali guests dressed for the celebration",
+        caption: "Traditional outfits and photo moments throughout the evening.",
+      },
+      {
+        type: "image",
+        src: "/events/diwali/IMG_4162.JPG",
+        alt: "AIS USC Diwali group enjoying the event",
+        caption: "Friends gathering during the Diwali festivities.",
+      },
+      {
+        type: "image",
+        src: "/events/diwali/IMG_4153.JPG",
+        alt: "AIS USC Diwali crowd celebrating on campus",
+        caption: "Campus community celebrating the Festival of Lights.",
+      },
+    ],
     startDate: "2025-11-07T18:00:00-08:00",
     endDate: "2025-11-07T22:30:00-08:00",
     highlights: ["Cultural showcase", "Live performances", "Festive dinner", "Photo moments", "Community dance floor"],
@@ -105,7 +138,38 @@ export const signatureEvents: SignatureEvent[] = [
     imageAlt: "AIS USC Holi group photo with students covered in bright festival colors",
     imageCaption: "AIS USC Holi brings students together for color, music, and campus community.",
     imagePosition: "center 42%",
-    gallery: [],
+    gallery: [
+      {
+        type: "video",
+        src: "/events/holi/IMG_9074.MOV",
+        alt: "AIS USC Holi students celebrating with color",
+        caption: "Color, music, and motion at AIS USC Holi.",
+      },
+      {
+        type: "image",
+        src: "/events/holi/IMG_9027.jpg",
+        alt: "AIS USC Holi students gathered outdoors with colorful powder",
+        caption: "Students gathering before the next color round.",
+      },
+      {
+        type: "image",
+        src: "/events/holi/IMG_9022.jpg",
+        alt: "AIS USC Holi celebration with students covered in festival colors",
+        caption: "Bright color moments from the Holi crowd.",
+      },
+      {
+        type: "image",
+        src: "/events/holi/IMG_9091.jpg",
+        alt: "AIS USC Holi group photo with students covered in color",
+        caption: "A colorful group moment from Holi on campus.",
+      },
+      {
+        type: "video",
+        src: "/events/holi/IMG_9082.MOV",
+        alt: "AIS USC Holi celebration video with students dancing",
+        caption: "Students celebrating Holi with music and color.",
+      },
+    ],
     startDate: "2026-03-21T12:00:00-07:00",
     endDate: "2026-03-21T16:00:00-07:00",
     highlights: ["Color toss", "Live DJ", "Group photos", "Outdoor games", "Festival snacks"],
@@ -153,7 +217,38 @@ export const signatureEvents: SignatureEvent[] = [
     imageAlt: "Ganesha Chaturthi altar with flowers, candles, and a Ganesha idol at an AIS USC cultural celebration",
     imageCaption: "AIS USC Ganesha Chaturthi creates a warm space for tradition and reflection.",
     imagePosition: "center 55%",
-    gallery: [],
+    gallery: [
+      {
+        type: "image",
+        src: "/events/ganesha-chaturthi/IMG_6149.JPG",
+        alt: "AIS USC Ganesha Chaturthi altar with flowers and candles",
+        caption: "A devotional setup for Ganesha Chaturthi.",
+      },
+      {
+        type: "image",
+        src: "/events/ganesha-chaturthi/IMG_6148.JPG",
+        alt: "AIS USC Ganesha Chaturthi cultural decor and offerings",
+        caption: "Decor, offerings, and community moments.",
+      },
+      {
+        type: "video",
+        src: "/events/ganesha-chaturthi/IMG_6093.MOV",
+        alt: "AIS USC Ganesha Chaturthi event video",
+        caption: "A glimpse from the Ganesha Chaturthi gathering.",
+      },
+      {
+        type: "image",
+        src: "/events/ganesha-chaturthi/IMG_6121.JPG",
+        alt: "AIS USC Ganesha Chaturthi students gathered at the event",
+        caption: "Students gathering for prayer, food, and community.",
+      },
+      {
+        type: "image",
+        src: "/events/ganesha-chaturthi/IMG_6130.JPG",
+        alt: "AIS USC Ganesha Chaturthi celebration details",
+        caption: "Details from the Ganesha Chaturthi celebration.",
+      },
+    ],
     startDate: "2026-08-28T17:30:00-07:00",
     endDate: "2026-08-28T20:30:00-07:00",
     highlights: ["Traditional decor", "Cultural storytelling", "Music", "Prasad", "Community dinner"],
@@ -200,7 +295,38 @@ export const signatureEvents: SignatureEvent[] = [
     imageAlt: "AIS USC Navratri and Garba night with students dancing outdoors under string lights",
     imageCaption: "AIS USC Navratri and Garba celebrates dance, music, and Indian culture at USC.",
     imagePosition: "center 58%",
-    gallery: [],
+    gallery: [
+      {
+        type: "video",
+        src: "/events/navratri-garba/A035_02202329_C046.mov",
+        alt: "AIS USC Navratri Garba dance floor video",
+        caption: "Garba circles moving through the night.",
+      },
+      {
+        type: "video",
+        src: "/events/navratri-garba/A035_02202252_C011.mov",
+        alt: "AIS USC Navratri Garba students dancing during the event",
+        caption: "Another look at the Garba floor in motion.",
+      },
+      {
+        type: "image",
+        src: "/events/navratri-garba/IMG_6773.JPG",
+        alt: "AIS USC Navratri Garba students dancing together",
+        caption: "Students dancing together during Navratri Garba.",
+      },
+      {
+        type: "image",
+        src: "/events/navratri-garba/IMG_1239.jpg",
+        alt: "AIS USC Navratri Garba celebration moment with students",
+        caption: "A candid moment from the Navratri celebration.",
+      },
+      {
+        type: "video",
+        src: "/events/navratri-garba/A035_02202355_C058.mov",
+        alt: "AIS USC Navratri Garba celebration video",
+        caption: "A high-energy moment from the Garba floor.",
+      },
+    ],
     startDate: "2026-09-26T19:00:00-07:00",
     endDate: "2026-09-26T23:00:00-07:00",
     highlights: ["Garba circles", "Dandiya", "Beginner-friendly lessons", "Live DJ", "Traditional outfits"],
