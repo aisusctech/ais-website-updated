@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title">
+  <title id="title">Radio5 Events</title>
+  <rect width="180" height="180" fill="#100707"/>
+  <defs>
+    <linearGradient id="steel" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".5" stop-color="#d8d8d8"/>
+      <stop offset="1" stop-color="#777"/>
+    </linearGradient>
+    <filter id="rough">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" seed="4"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .18"/>
+      </feComponentTransfer>
+      <feComposite operator="in" in2="SourceGraphic"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </defs>
+  <g fill="url(#steel)" font-family="Arial Black, Impact, sans-serif" font-weight="900" filter="url(#rough)">
+    <text x="17" y="76" font-size="39" letter-spacing="-1">RADIO5</text>
+    <text x="17" y="118" font-size="39" letter-spacing="-1">EVENTS</text>
+  </g>
+</svg>

@@ -1,0 +1,249 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Dark premium theme with gold accents - Indian heritage inspired */
+  --background: oklch(0.12 0.01 260);
+  --foreground: oklch(0.95 0.01 80);
+  --card: oklch(0.15 0.01 260);
+  --card-foreground: oklch(0.95 0.01 80);
+  --popover: oklch(0.15 0.01 260);
+  --popover-foreground: oklch(0.95 0.01 80);
+  --primary: oklch(0.78 0.14 75);
+  --primary-foreground: oklch(0.12 0.01 260);
+  --secondary: oklch(0.20 0.02 260);
+  --secondary-foreground: oklch(0.95 0.01 80);
+  --muted: oklch(0.20 0.02 260);
+  --muted-foreground: oklch(0.65 0.02 80);
+  --accent: oklch(0.65 0.18 30);
+  --accent-foreground: oklch(0.95 0.01 80);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.28 0.02 260);
+  --input: oklch(0.20 0.02 260);
+  --ring: oklch(0.78 0.14 75);
+  --chart-1: oklch(0.78 0.14 75);
+  --chart-2: oklch(0.65 0.18 30);
+  --chart-3: oklch(0.55 0.15 330);
+  --chart-4: oklch(0.60 0.12 180);
+  --chart-5: oklch(0.70 0.15 45);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.10 0.01 260);
+  --sidebar-foreground: oklch(0.95 0.01 80);
+  --sidebar-primary: oklch(0.78 0.14 75);
+  --sidebar-primary-foreground: oklch(0.12 0.01 260);
+  --sidebar-accent: oklch(0.20 0.02 260);
+  --sidebar-accent-foreground: oklch(0.95 0.01 80);
+  --sidebar-border: oklch(0.28 0.02 260);
+  --sidebar-ring: oklch(0.78 0.14 75);
+  
+  /* Custom colors for AIS */
+  --gold: oklch(0.78 0.14 75);
+  --gold-light: oklch(0.85 0.12 75);
+  --gold-dark: oklch(0.65 0.14 75);
+  --saffron: oklch(0.70 0.18 50);
+  --deep-maroon: oklch(0.35 0.12 15);
+  --warm-cream: oklch(0.92 0.03 80);
+}
+
+@theme inline {
+  --font-sans: 'Playfair Display', 'Georgia', serif;
+  --font-serif: 'Playfair Display', 'Georgia', serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
+  --color-saffron: var(--saffron);
+  --color-deep-maroon: var(--deep-maroon);
+  --color-warm-cream: var(--warm-cream);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Floating particle animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.6);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Rangoli tile background — concentric rings + 8 radial spokes + dots */
+.mandala-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-opacity='0.07'%3E%3Ccircle cx='60' cy='60' r='56' stroke-width='0.6'/%3E%3Ccircle cx='60' cy='60' r='44' stroke-width='0.35'/%3E%3Ccircle cx='60' cy='60' r='30' stroke-width='0.4'/%3E%3Ccircle cx='60' cy='60' r='16' stroke-width='0.3'/%3E%3Cline x1='60' y1='4' x2='60' y2='116' stroke-width='0.25'/%3E%3Cline x1='4' y1='60' x2='116' y2='60' stroke-width='0.25'/%3E%3Cline x1='20' y1='20' x2='100' y2='100' stroke-width='0.2'/%3E%3Cline x1='100' y1='20' x2='20' y2='100' stroke-width='0.2'/%3E%3C!-- 8 petal outlines --%3E%3Cpath d='M60 60 Q54.5 36 60 16 Q65.5 36 60 60Z' stroke-width='0.45'/%3E%3Cpath d='M60 60 Q84 54.5 104 60 Q84 65.5 60 60Z' stroke-width='0.45'/%3E%3Cpath d='M60 60 Q65.5 84 60 104 Q54.5 84 60 60Z' stroke-width='0.45'/%3E%3Cpath d='M60 60 Q36 65.5 16 60 Q36 54.5 60 60Z' stroke-width='0.45'/%3E%3Cpath d='M60 60 Q75 42 88 24 Q73 46 60 60Z' stroke-width='0.3'/%3E%3Cpath d='M60 60 Q78 75 96 88 Q74 73 60 60Z' stroke-width='0.3'/%3E%3Cpath d='M60 60 Q45 78 32 96 Q47 74 60 60Z' stroke-width='0.3'/%3E%3Cpath d='M60 60 Q42 45 24 32 Q46 47 60 60Z' stroke-width='0.3'/%3E%3C!-- dots --%3E%3Ccircle cx='60' cy='4' r='2' fill='%23D4AF37'/%3E%3Ccircle cx='116' cy='60' r='2' fill='%23D4AF37'/%3E%3Ccircle cx='60' cy='116' r='2' fill='%23D4AF37'/%3E%3Ccircle cx='4' cy='60' r='2' fill='%23D4AF37'/%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23D4AF37'/%3E%3Ccircle cx='100' cy='20' r='1.5' fill='%23D4AF37'/%3E%3Ccircle cx='100' cy='100' r='1.5' fill='%23D4AF37'/%3E%3Ccircle cx='20' cy='100' r='1.5' fill='%23D4AF37'/%3E%3Ccircle cx='60' cy='60' r='3.5' fill='%23D4AF37'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Kolam dot-grid pattern — South Indian style */
+.kolam-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%23D4AF37' fill-opacity='0.055'%3E%3Ccircle cx='40' cy='40' r='2.5'/%3E%3Ccircle cx='0'  cy='0'  r='2'/%3E%3Ccircle cx='80' cy='0'  r='2'/%3E%3Ccircle cx='0'  cy='80' r='2'/%3E%3Ccircle cx='80' cy='80' r='2'/%3E%3Ccircle cx='40' cy='0'  r='1.5'/%3E%3Ccircle cx='40' cy='80' r='1.5'/%3E%3Ccircle cx='0'  cy='40' r='1.5'/%3E%3Ccircle cx='80' cy='40' r='1.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%23D4AF37' stroke-opacity='0.045'%3E%3Cpath d='M40 20 Q52 30 60 40 Q52 50 40 60 Q28 50 20 40 Q28 30 40 20Z' stroke-width='0.4'/%3E%3Ccircle cx='40' cy='40' r='14' stroke-width='0.3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Gold gradient text */
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-india-green {
+  color: #138808;
+}
+
+.text-india-orange {
+  color: #ff671f;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(20, 20, 35, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Rangoli border — diamond chain used as a top/bottom section accent */
+.rangoli-border {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='20' viewBox='0 0 60 20'%3E%3Cg fill='none' stroke='%23D4AF37' stroke-opacity='0.28' stroke-linecap='round'%3E%3Cline x1='0' y1='10' x2='60' y2='10' stroke-width='0.5'/%3E%3Cpath d='M30 2 L38 10 L30 18 L22 10 Z' stroke-width='0.9' fill='%23D4AF37' fill-opacity='0.08'/%3E%3Ccircle cx='0'  cy='10' r='1.8' fill='%23D4AF37'/%3E%3Ccircle cx='60' cy='10' r='1.8' fill='%23D4AF37'/%3E%3Ccircle cx='15' cy='10' r='1.3' fill='%23D4AF37'/%3E%3Ccircle cx='45' cy='10' r='1.3' fill='%23D4AF37'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 20px;
+}
+
+/* Subtle saffron gradient overlay used on section cards */
+.saffron-glow {
+  background: radial-gradient(ellipse at 50% 0%, rgba(224, 120, 40, 0.08) 0%, transparent 70%);
+}
+
+/* Lotus watermark — large faint lotus centered in a section */
+.lotus-watermark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-50 -50 100 100'%3E%3Cg fill='%23D4AF37' fill-opacity='0.035' stroke='%23D4AF37' stroke-opacity='0.04' stroke-linecap='round'%3E%3Cpath d='M0 0 Q-5.9 -28 0 -44 Q5.9 -28 0 0Z' stroke-width='0.5'/%3E%3Cpath d='M0 0 Q-31 -5.9 -44 0 Q-31 5.9 0 0Z' stroke-width='0.5'/%3E%3Cpath d='M0 0 Q5.9 28 0 44 Q-5.9 28 0 0Z' stroke-width='0.5'/%3E%3Cpath d='M0 0 Q31 5.9 44 0 Q31 -5.9 0 0Z' stroke-width='0.5'/%3E%3Cpath d='M0 0 Q-20 -24 -31 -31 Q-24 -20 0 0Z' stroke-width='0.4'/%3E%3Cpath d='M0 0 Q24 -20 31 -31 Q20 -24 0 0Z' stroke-width='0.4'/%3E%3Cpath d='M0 0 Q20 24 31 31 Q24 20 0 0Z' stroke-width='0.4'/%3E%3Cpath d='M0 0 Q-24 20 -31 31 Q-20 24 0 0Z' stroke-width='0.4'/%3E%3Ccircle r='4' stroke-width='0'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 60% auto;
+  pointer-events: none;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes spin-slow-reverse {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 120s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 80s linear infinite;
+}

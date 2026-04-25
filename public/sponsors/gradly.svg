@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Gradly</title>
+  <rect width="512" height="512" fill="#fff"/>
+  <circle cx="256" cy="256" r="226" fill="#1f49c9" stroke="#ffd317" stroke-width="16"/>
+  <text x="256" y="235" text-anchor="middle" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="88" font-weight="700" letter-spacing="-4">gradly</text>
+  <path d="M104 306c52 16 96-31 138-10 25 13-26 55-47 36-18-17 28-58 79-27 45 28 101 23 142-6" fill="none" stroke="#ffd317" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
