@@ -50,7 +50,7 @@ export const signatureEvents: SignatureEvent[] = [
     longDescription: "Diwali is AIS USC's flagship celebration of light, performance, food, and community. The night brings together students, alumni, and friends for a polished cultural showcase followed by music, dancing, and moments that feel like home.",
     location: "USC McCarthy Quad",
     address: "McCarthy Quad, University of Southern California, Los Angeles, CA 90089",
-    date: "November 15, 2025",
+    date: "November 15, 2026",
     time: "6:00 PM - 10:30 PM",
     waitlistHref: "/tickets",
     showWaitlist: false,
