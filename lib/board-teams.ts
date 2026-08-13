@@ -37,7 +37,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC President Team executive board collage with student leaders",
     imageCaption: "President Team leads AIS USC strategy, coordination, and community direction.",
     imagePosition: "center",
-    members: ["Annav Banthia", "Vineeth K V", "Anushka Mahajan", "Veer Vora", "Aayushi Singh"],
+    members: ["Dev Kachiwala", "Sameeksha Desai"],
   },
   {
     id: 2,
@@ -59,7 +59,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC Finance Team executive board collage with student leaders",
     imageCaption: "Finance Team manages AIS USC budgets, payments, and financial planning.",
     imagePosition: "center",
-    members: ["Sahil Satasya", "Ambarish Kshirsagar", "Yashvi Sanghani", "Vaishnavi Srinivas"],
+    members: ["Sahil Satasya"],
   },
   {
     id: 3,
@@ -81,7 +81,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC Tech Team executive board collage with student leaders",
     imageCaption: "Tech Team builds AIS USC digital systems, website experiences, and event tools.",
     imagePosition: "center",
-    members: ["Saikarthik Pendela", "Ameya Deshmukh", "Amritesh Amrit", "Athena Marianne Lobo", "Abhijit Kulkarni"],
+    members: ["Amritesh Amrit", "Athena Marianne Lobo"],
   },
   {
     id: 4,
@@ -103,7 +103,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC Content Team executive board collage with student creators",
     imageCaption: "Content Team shapes AIS USC social media, photography, video, and event storytelling.",
     imagePosition: "center",
-    members: ["Charan Kumar", "Aashwini Vachhani", "Preet Kumar", "Aayushi Soni", "Jash Shah", "Aarushi Singh"],
+    members: ["Aarushi Singh"],
   },
   {
     id: 5,
@@ -125,7 +125,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC Events Team executive board collage with student event planners",
     imageCaption: "Events Team plans AIS USC cultural celebrations including Diwali, Holi, and Garba.",
     imagePosition: "center",
-    members: ["Neel Jadhav", "Weona Lazarus", "Sameeksha Desai", "Uraaz Gorimar", "Sanjay Balasubramaniam"],
+    members: ["Sanjay Balasubramaniam"],
   },
   {
     id: 6,
@@ -147,7 +147,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC Relations Team executive board collage with student partnership leads",
     imageCaption: "Relations Team builds collaborations across USC student groups and community partners.",
     imagePosition: "center",
-    members: ["Anaaya Singhania", "Dhruvika Joshi", "Tiana Viola Pinto", "Dev Kachiwala", "Mitali Jain"],
+    members: ["Tiana Viola Pinto"],
   },
   {
     id: 7,
@@ -169,7 +169,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC Sponsorship Team executive board collage with student partnership leads",
     imageCaption: "Sponsorship Team secures partnerships that support AIS USC events and initiatives.",
     imagePosition: "center",
-    members: ["Arya Wadhwani", "Saurabh Mhatre", "Hrishank Chhatbar", "Anjana K", "Siya Tayal", "Sanika Dhavan"],
+    members: ["Arya Wadhwani", "Anjana K", "Siya Tayal", "Sanika Dhavan"],
   },
   {
     id: 8,
@@ -191,7 +191,7 @@ export const boardTeams: BoardTeam[] = [
     imageAlt: "AIS USC Hospitality Team executive board collage with student hospitality leads",
     imageCaption: "Hospitality Team makes AIS USC events welcoming, organized, and guest-focused.",
     imagePosition: "center",
-    members: ["Aayush Charnia", "Rahul Jakhotia", "Charudisha Ashjay"],
+    members: ["Aayush Charnia"],
   },
 ]
 

@@ -129,13 +129,15 @@ export function EventDetailPage({ event }: { event: SignatureEvent }) {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.45, duration: 0.6 }}
               >
-                <a
-                  href={event.waitlistHref}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 font-medium text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25"
-                >
-                  Join Waitlist
-                  <Ticket size={18} />
-                </a>
+                {event.showWaitlist !== false && event.waitlistHref ? (
+                  <a
+                    href={event.waitlistHref}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-7 py-3 font-medium text-primary-foreground transition-all hover:scale-105 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25"
+                  >
+                    Join Waitlist
+                    <Ticket size={18} />
+                  </a>
+                ) : null}
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.address)}`}
                   target="_blank"

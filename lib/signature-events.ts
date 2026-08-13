@@ -9,7 +9,8 @@ export type SignatureEvent = {
   address: string
   date: string
   time: string
-  waitlistHref: string
+  waitlistHref?: string
+  showWaitlist?: boolean
   color: string
   borderColor: string
   iconBg: string
@@ -49,9 +50,10 @@ export const signatureEvents: SignatureEvent[] = [
     longDescription: "Diwali is AIS USC's flagship celebration of light, performance, food, and community. The night brings together students, alumni, and friends for a polished cultural showcase followed by music, dancing, and moments that feel like home.",
     location: "USC McCarthy Quad",
     address: "McCarthy Quad, University of Southern California, Los Angeles, CA 90089",
-    date: "November 2025",
+    date: "November 15, 2025",
     time: "6:00 PM - 10:30 PM",
     waitlistHref: "/tickets",
+    showWaitlist: false,
     color: "from-amber-500/20 to-orange-600/20",
     borderColor: "border-amber-500/30",
     iconBg: "bg-amber-500/20",
@@ -131,6 +133,7 @@ export const signatureEvents: SignatureEvent[] = [
     date: "March 2026",
     time: "12:00 PM - 4:00 PM",
     waitlistHref: "/tickets",
+    showWaitlist: true,
     color: "from-pink-500/20 to-purple-600/20",
     borderColor: "border-pink-500/30",
     iconBg: "bg-pink-500/20",
@@ -210,6 +213,7 @@ export const signatureEvents: SignatureEvent[] = [
     date: "August 2026",
     time: "5:30 PM - 8:30 PM",
     waitlistHref: "/tickets",
+    showWaitlist: true,
     color: "from-red-500/20 to-rose-600/20",
     borderColor: "border-red-500/30",
     iconBg: "bg-red-500/20",
@@ -285,9 +289,10 @@ export const signatureEvents: SignatureEvent[] = [
     longDescription: "Navratri & Garba is AIS USC's dance-forward celebration with circles of movement, bright outfits, and music that keeps the night alive. Beginners and experienced dancers are both welcome.",
     location: "USC McCarthy Quad",
     address: "McCarthy Quad, University of Southern California, Los Angeles, CA 90089",
-    date: "September 2026",
+    date: "October 18, 2026",
     time: "7:00 PM - 11:00 PM",
     waitlistHref: "/tickets",
+    showWaitlist: false,
     color: "from-emerald-500/20 to-teal-600/20",
     borderColor: "border-emerald-500/30",
     iconBg: "bg-emerald-500/20",
