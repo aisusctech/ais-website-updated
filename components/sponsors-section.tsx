@@ -3,99 +3,153 @@
 import { motion } from "framer-motion"
 import { LotusIcon } from "@/components/indian-patterns"
 
-const sponsors = {
-  premium: [
-    {
-      name: "gradly",
-      level: "Premium Sponsor",
-      logo: "/sponsors/gradly.svg",
-      accent: "from-blue-500/25 via-primary/10 to-yellow-500/15",
-      borderColor: "border-primary/35",
-      glow: "shadow-primary/10",
-    },
-  ],
-  bronze: [
-    {
-      name: "Weee!",
-      level: "Bronze Sponsor",
-      logo: "/sponsors/weee.svg",
-      accent: "from-orange-500/20 via-cyan-500/10 to-blue-500/15",
-      borderColor: "border-orange-500/25",
-      glow: "shadow-orange-500/10",
-    },
-  ],
-  media: [
-    {
-      name: "Radio5 Events",
-      level: "Media Partner",
-      logo: "/sponsors/radio5events.svg",
-      accent: "from-zinc-500/20 via-red-500/10 to-primary/10",
-      borderColor: "border-zinc-400/25",
-      glow: "shadow-zinc-500/10",
-    },
-  ],
-}
-
 type Sponsor = {
   name: string
-  level: string
   logo: string
+  href: string
   accent: string
   borderColor: string
   glow: string
 }
 
-function SponsorLogo({ sponsor, size = "medium", index }: { sponsor: Sponsor; size?: "large" | "medium" | "small"; index: number }) {
-  const sizeClasses = {
-    large: "w-full max-w-xl min-h-56 sm:min-h-64",
-    medium: "w-full max-w-sm min-h-44",
-    small: "w-full max-w-sm min-h-44",
+type SponsorSize = "large" | "medium" | "small"
+
+const sponsors: {
+  title: Sponsor[]
+  ticketing: Sponsor[]
+  supporting: Sponsor[]
+} = {
+  title: [
+    {
+      name: "WellAway",
+      logo: "/sponsors/wellaway.png",
+      href: "https://www.wellaway.com/",
+      accent: "from-amber-500/25 via-primary/10 to-yellow-500/15",
+      borderColor: "border-primary/40",
+      glow: "shadow-primary/15",
+    },
+  ],
+  ticketing: [
+    {
+      name: "Eventreels",
+      logo: "/sponsors/eventreels.png",
+      href: "https://eventreels.com/",
+      accent: "from-violet-500/20 via-primary/10 to-fuchsia-500/15",
+      borderColor: "border-violet-400/30",
+      glow: "shadow-violet-500/10",
+    },
+  ],
+  supporting: [
+    {
+      name: "EasyTransfer",
+      logo: "/sponsors/easytransfer.png",
+      href: "https://www.easytransferglobal.com/",
+      accent: "from-blue-500/20 via-cyan-500/10 to-primary/10",
+      borderColor: "border-blue-400/30",
+      glow: "shadow-blue-500/10",
+    },
+    {
+      name: "BIH",
+      logo: "/sponsors/bih.jpg",
+      href: "https://linktr.ee/bihevents",
+      accent: "from-red-500/20 via-orange-500/10 to-primary/10",
+      borderColor: "border-red-400/30",
+      glow: "shadow-red-500/10",
+    },
+  ],
+}
+
+function SponsorCard({
+  sponsor,
+  size,
+  index,
+}: {
+  sponsor: Sponsor
+  size: SponsorSize
+  index: number
+}) {
+  const sizeClasses: Record<SponsorSize, string> = {
+    large: "w-full max-w-2xl min-h-60 sm:min-h-64",
+    medium: "w-full max-w-xl min-h-52",
+    small: "w-full max-w-sm min-h-48",
   }
 
-  const logoClasses = {
-    large: "h-24 sm:h-28 max-w-[260px]",
-    medium: "h-20 max-w-[210px]",
-    small: "h-20 max-w-[210px]",
-  }
-  
+  const logoClasses: Record<SponsorSize, string> = {
+  large: "h-24 sm:h-28",
+  medium: "h-20 sm:h-24",
+  small: "h-16 sm:h-20",
+ }
+  const logoPanelClasses: Record<SponsorSize, string> = {
+  large: "w-full max-w-sm px-6 py-6 sm:px-12 sm:py-7",
+  medium: "w-full max-w-xs px-6 py-6 sm:px-10",
+  small: "w-full max-w-[240px] px-6 py-5 sm:px-8",
+}
+
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
+    <motion.a
+      href={sponsor.href}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, scale: 0.94 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4, delay: index * 0.1 }}
+      whileHover={{ y: -6, scale: 1.02 }}
+      transition={{ duration: 0.4, delay: index * 0.08 }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.05 }}
-      className={`${sizeClasses[size]} relative overflow-hidden rounded-2xl border ${sponsor.borderColor} bg-gradient-to-br ${sponsor.accent} flex items-center justify-center cursor-pointer transition-all duration-300 hover:border-primary/40 hover:shadow-2xl ${sponsor.glow} group`}
+      className={`${sizeClasses[size]} group relative flex items-center justify-center overflow-hidden rounded-2xl border ${sponsor.borderColor} bg-gradient-to-br ${sponsor.accent} transition-[border-color,box-shadow] duration-300 hover:border-primary/50 hover:shadow-2xl ${sponsor.glow} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background`}
     >
-      <img
-        src={sponsor.logo}
-        alt=""
-        aria-hidden="true"
-        className="absolute -right-8 -bottom-10 h-40 w-40 object-contain opacity-[0.07] blur-[1px] saturate-150 transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.12]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-br from-background/74 via-card/64 to-background/84" />
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background/75 via-card/65 to-background/85" />
 
-      <div className="relative z-10 flex flex-col items-center gap-5 px-8 py-8 text-center">
-        <span className="text-xs font-medium tracking-[0.22em] uppercase text-primary">
-          {sponsor.level}
-        </span>
-        <div className="rounded-2xl border border-white/10 bg-white/95 px-7 py-5 shadow-xl shadow-black/20">
+      <div
+        aria-hidden="true"
+        className="absolute -right-16 -bottom-20 h-56 w-56 rounded-full bg-primary/10 blur-3xl transition-transform duration-500 group-hover:scale-125"
+      />
+
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent"
+      />
+
+      <div className="relative z-10 flex w-full flex-col items-center gap-5 px-6 py-8 text-center">
+        <div
+          className={`${logoPanelClasses[size]} flex min-h-28 items-center justify-center rounded-2xl border border-white/20 bg-white shadow-xl shadow-black/20 transition-transform duration-300 group-hover:scale-[1.02]`}
+        >
           <img
             src={sponsor.logo}
-            alt={`${sponsor.name} logo`}
-            className={`${logoClasses[size]} w-auto object-contain`}
-          />
+            alt={`${sponsor.name} sponsor logo`}
+            loading="lazy"
+            decoding="async"
+            className={`${logoClasses[size]} w-full max-w-full object-contain`}          />
         </div>
-        <p className="text-sm text-muted-foreground">
-          {sponsor.name}
-        </p>
+
+        <div>
+          <p className="text-base font-medium text-foreground">
+            {sponsor.name}
+          </p>
+
+          <span className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium tracking-wide text-primary">
+            Visit website
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            >
+              ↗
+            </span>
+          </span>
+        </div>
       </div>
-    </motion.div>
+    </motion.a>
   )
 }
 
-function SponsorTier({ title, sponsors, size }: { title: string; sponsors: Sponsor[]; size: "large" | "medium" | "small" }) {
+function SponsorTier({
+  title,
+  sponsors,
+  size,
+}: {
+  title: string
+  sponsors: Sponsor[]
+  size: SponsorSize
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -104,16 +158,30 @@ function SponsorTier({ title, sponsors, size }: { title: string; sponsors: Spons
       viewport={{ once: true }}
       className="text-center"
     >
-      <div className="inline-flex items-center gap-3 mb-8">
-        <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary/50" />
-        <span className="text-sm text-primary tracking-widest uppercase font-medium">
+      <div className="mb-8 inline-flex items-center gap-3">
+        <div
+          aria-hidden="true"
+          className="h-px w-10 bg-gradient-to-r from-transparent to-primary/50 sm:w-12"
+        />
+
+        <h3 className="text-sm font-medium uppercase tracking-widest text-primary">
           {title}
-        </span>
-        <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary/50" />
+        </h3>
+
+        <div
+          aria-hidden="true"
+          className="h-px w-10 bg-gradient-to-l from-transparent to-primary/50 sm:w-12"
+        />
       </div>
+
       <div className="flex flex-wrap items-stretch justify-center gap-6">
         {sponsors.map((sponsor, index) => (
-          <SponsorLogo key={sponsor.name} sponsor={sponsor} size={size} index={index} />
+          <SponsorCard
+            key={sponsor.name}
+            sponsor={sponsor}
+            size={size}
+            index={index}
+          />
         ))}
       </div>
     </motion.div>
@@ -122,63 +190,77 @@ function SponsorTier({ title, sponsors, size }: { title: string; sponsors: Spons
 
 export function SponsorsSection() {
   return (
-    <section id="sponsors" className="relative py-32 overflow-hidden">
-      {/* Background */}
+    <section id="sponsors" className="relative overflow-hidden py-32">
       <div className="absolute inset-0 mandala-pattern opacity-30" />
-      
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
-        {/* Section header */}
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16 text-center"
         >
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="mb-4 flex items-center justify-center gap-3">
             <LotusIcon size={22} opacity={0.65} />
-            <span className="text-sm text-primary tracking-widest uppercase">
+
+            <span className="text-sm uppercase tracking-widest text-primary">
               Our Partners
             </span>
+
             <LotusIcon size={22} opacity={0.65} />
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-6 text-balance">
+
+          <h2 className="mb-6 text-balance text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
             Sponsors & Partners
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We are grateful to our sponsors and partners who help make our events 
-            and initiatives possible.
+
+          <p className="mx-auto max-w-2xl leading-relaxed text-muted-foreground">
+            We are grateful to our sponsors and partners who help make our
+            events and initiatives possible.
           </p>
         </motion.div>
-        
-        {/* Sponsor tiers */}
-        <div className="space-y-16">
-          <SponsorTier title="Premium Sponsor" sponsors={sponsors.premium} size="large" />
-          <div className="grid gap-12 lg:grid-cols-2 lg:gap-8">
-            <SponsorTier title="Bronze Sponsor" sponsors={sponsors.bronze} size="medium" />
-            <SponsorTier title="Media Partner" sponsors={sponsors.media} size="small" />
-          </div>
+
+        <div className="space-y-14 sm:space-y-16">
+          <SponsorTier
+            title="Title Sponsor"
+            sponsors={sponsors.title}
+            size="large"
+          />
+
+          <SponsorTier
+            title="Ticketing Sponsor"
+            sponsors={sponsors.ticketing}
+            size="medium"
+          />
+
+          <SponsorTier
+            title="Supporting Sponsors"
+            sponsors={sponsors.supporting}
+            size="small"
+          />
         </div>
-        
-        {/* Become a sponsor CTA */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-20"
+          className="mt-20 text-center"
         >
-          <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/10 via-card to-primary/5 border border-primary/20">
-            <h3 className="text-xl font-semibold text-foreground mb-3">
+          <div className="inline-block rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/10 via-card to-primary/5 p-8">
+            <h3 className="mb-3 text-xl font-semibold text-foreground">
               Interested in Partnering With Us?
             </h3>
-            <p className="text-muted-foreground mb-6 max-w-md">
-              Join our community of sponsors and help us create unforgettable 
+
+            <p className="mb-6 max-w-md text-muted-foreground">
+              Join our community of sponsors and help us create unforgettable
               cultural experiences at USC.
             </p>
+
             <a
               href="mailto:sponsorship@aisusc.org"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-full font-medium hover:bg-primary/90 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             >
               Become a Sponsor
             </a>
