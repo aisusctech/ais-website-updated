@@ -4,7 +4,8 @@ import { useMemo, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Calendar, CheckCircle2, ClipboardCheck, Mail, ShieldCheck, Ticket, User, Users } from "lucide-react"
 import { signatureEvents } from "@/lib/signature-events"
-
+import { USC_EMAIL_REGEX, USC_ID_REGEX } from "@/src/constants/regex.constant"
+import { validateRegex } from "@/src/utility/regex.utility"
 type FormState = {
   eventSlug: string
   fullName: string
@@ -44,8 +45,13 @@ export function TicketsForm() {
       return
     }
 
-    if (!form.uscEmail.toLowerCase().endsWith("@usc.edu")) {
-      setError("Please use your USC email address.")
+    if (!validateRegex(USC_ID_REGEX, form.uscId.trim())) {
+      setError("Please enter a valid 10-digit USC ID.")
+      return
+    }
+
+    if (!validateRegex(USC_EMAIL_REGEX, form.uscEmail.trim())) {
+      setError("Please enter a valid USC email address (name@usc.edu).")
       return
     }
 

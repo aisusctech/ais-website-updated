@@ -16,7 +16,13 @@ export default function manifest(): MetadataRoute.Manifest {
         src: "/ais-logo.svg",
         sizes: "any",
         type: "image/svg+xml",
-        purpose: "any maskable",
+        purpose: "any",
+      },
+      {
+        src: "/ais-logo.svg",
+        sizes: "any",
+        type: "image/svg+xml",
+        purpose: "maskable",
       },
     ],
   }
