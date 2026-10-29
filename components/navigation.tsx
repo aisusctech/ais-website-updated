@@ -6,11 +6,11 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { href: "#events", label: "Events" },
-  { href: "#testimonials", label: "Community" },
-  { href: "#board", label: "Board" },
-  { href: "#resources", label: "Resources" },
-  { href: "#sponsors", label: "Sponsors" },
+  { href: "/#events", label: "Events" },
+  { href: "/#testimonials", label: "Community" },
+  { href: "/#board", label: "Board" },
+  { href: "/#resources", label: "Resources" },
+  { href: "/#sponsors", label: "Sponsors" },
 ]
 
 export function Navigation() {

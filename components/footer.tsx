@@ -6,13 +6,13 @@ import { Instagram, Linkedin, Mail, ExternalLink } from "lucide-react"
 
 const footerLinks = {
   navigation: [
-    { label: "Events", href: "#events" },
-    { label: "Tickets", href: "/tickets" },
-    { label: "Community", href: "#testimonials" },
-    { label: "Board", href: "#board" },
-    { label: "Resources", href: "#resources" },
-    { label: "Sponsors", href: "#sponsors" },
-  ],
+  { label: "Events", href: "/#events" },
+  { label: "Tickets", href: "/tickets" },
+  { label: "Community", href: "/#testimonials" },
+  { label: "Board", href: "/#board" },
+  { label: "Resources", href: "/#resources" },
+  { label: "Sponsors", href: "/#sponsors" },
+],
   resources: [
     { label: "USC Housing", href: "https://housing.usc.edu", external: true },
     { label: "International Students", href: "https://ois.usc.edu", external: true },
