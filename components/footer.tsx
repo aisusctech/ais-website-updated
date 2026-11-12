@@ -7,7 +7,6 @@ import { Instagram, Linkedin, Mail, ExternalLink } from "lucide-react"
 const footerLinks = {
   navigation: [
   { label: "Events", href: "/#events" },
-  { label: "Tickets", href: "/tickets" },
   { label: "Community", href: "/#testimonials" },
   { label: "Board", href: "/#board" },
   { label: "Resources", href: "/#resources" },
