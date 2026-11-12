@@ -6,11 +6,11 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { href: "#events", label: "Events" },
-  { href: "#testimonials", label: "Community" },
-  { href: "#board", label: "Board" },
-  { href: "#resources", label: "Resources" },
-  { href: "#sponsors", label: "Sponsors" },
+  { href: "/#events", label: "Events" },
+  { href: "/#testimonials", label: "Community" },
+  { href: "/#board", label: "Board" },
+  { href: "/#resources", label: "Resources" },
+  { href: "/#sponsors", label: "Sponsors" },
 ]
 
 export function Navigation() {
@@ -92,20 +92,6 @@ export function Navigation() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 }}
-            className="hidden md:block"
-          >
-            <Link
-              href="/tickets"
-              className="px-5 py-2.5 text-sm font-medium bg-primary text-primary-foreground rounded-full hover:bg-primary/90 transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
-            >
-              Tickets
-            </Link>
-          </motion.div>
 
           {/* Mobile Menu Button */}
           <button
@@ -145,19 +131,7 @@ export function Navigation() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <Link
-                  href="/tickets"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="mt-4 px-8 py-3 text-lg font-medium bg-primary text-primary-foreground rounded-full"
-                >
-                  Tickets
-                </Link>
-              </motion.div>
+
             </nav>
           </motion.div>
         )}
